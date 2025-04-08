@@ -1,4 +1,4 @@
-from users import users
+from auth_data import users
 
 def authenticate(username, password):
     

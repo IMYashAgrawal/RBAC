@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from authFunction import authenticate
-from permissionFunction import has_permission
+from auth_functions import authenticate
+from auth_data import add_user
+from rbac_functions import has_permission
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # Recall: In production, use a secure key and environment variables.
+app.secret_key = "supersecretkey"  # Use a secure key in production.
 
 @app.route("/", methods=["GET", "POST"])
 def login():
@@ -21,6 +22,27 @@ def login():
             flash("Invalid credentials. Please try again.")
             return redirect(url_for("login"))
     return render_template("login.html")
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    """Sign-up route: allow users to create an account."""
+    if request.method == "POST":
+        username = request.form.get("username").strip()
+        password = request.form.get("password").strip()
+        confirm_password = request.form.get("confirm_password").strip()
+
+        if password != confirm_password:
+            flash("Passwords do not match. Please try again.")
+            return redirect(url_for("signup"))
+
+        if add_user(username, password):
+            flash("Account created successfully! You can now log in.")
+            return redirect(url_for("login"))
+        else:
+            flash("Username already exists. Please choose a different one.")
+            return redirect(url_for("signup"))
+
+    return render_template("signup.html")
 
 @app.route("/home", methods=["GET", "POST"])
 def home():
