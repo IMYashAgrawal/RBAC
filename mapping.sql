@@ -5,19 +5,19 @@ USE system_permissions;
 -- Define all possible job roles in our system
 CREATE TABLE roles (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL UNIQUE,
+    name VARCHAR(50) NOT NULL UNIQUE
 );
 
 -- List all possible actions people can take
 CREATE TABLE permissions (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL UNIQUE,
+    name VARCHAR(50) NOT NULL UNIQUE
 );
 
 -- Catalog all parts of our system
 CREATE TABLE system_components (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL UNIQUE,
+    name VARCHAR(50) NOT NULL UNIQUE
 );
 
 -- Create the master list of who can do what where
@@ -167,7 +167,7 @@ INSERT INTO access_rules (role_id, component_id, permission_id) VALUES
 ((SELECT id FROM roles WHERE name = 'Finance Team'), (SELECT id FROM system_components WHERE name = 'Legal Data'), (SELECT id FROM permissions WHERE name = 'NA'));
 
 -- 8. IT TEAM PERMISSIONS
-INSERT INTO access_rules (role_id, component_id, permission_id)
+INSERT INTO access_rules (role_id, component_id, permission_id) VALUES
 ((SELECT id FROM roles WHERE name = 'IT Team'), (SELECT id FROM system_components WHERE name = 'Products'), (SELECT id FROM permissions WHERE name = 'R/W')),
 ((SELECT id FROM roles WHERE name = 'IT Team'), (SELECT id FROM system_components WHERE name = 'Orders'), (SELECT id FROM permissions WHERE name = 'R/W')),
 ((SELECT id FROM roles WHERE name = 'IT Team'), (SELECT id FROM system_components WHERE name = 'User Profiles'), (SELECT id FROM permissions WHERE name = 'R/W')),
@@ -195,7 +195,7 @@ INSERT INTO access_rules (role_id, component_id, permission_id) VALUES
 ((SELECT id FROM roles WHERE name = 'Legal Team'), (SELECT id FROM system_components WHERE name = 'Legal Data'), (SELECT id FROM permissions WHERE name = 'R/W'));
 
 -- 10. ADMIN PERMISSIONS
-INSERT INTO access_rules (role_id, component_id, permission_id)
+INSERT INTO access_rules (role_id, component_id, permission_id) VALUES
 ((SELECT id FROM roles WHERE name = 'Admin'), (SELECT id FROM system_components WHERE name = 'Products'), (SELECT id FROM permissions WHERE name = 'R/W')),
 ((SELECT id FROM roles WHERE name = 'Admin'), (SELECT id FROM system_components WHERE name = 'Orders'), (SELECT id FROM permissions WHERE name = 'R/W')),
 ((SELECT id FROM roles WHERE name = 'Admin'), (SELECT id FROM system_components WHERE name = 'User Profiles'), (SELECT id FROM permissions WHERE name = 'R/W')),
