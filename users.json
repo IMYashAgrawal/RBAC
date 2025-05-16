@@ -1,0 +1,14 @@
+{
+    "tanishk_jain": {
+        "password": "asdf",
+        "role": "Admin"
+    },
+    "qwer": {
+        "password": "Tanishk1234@",
+        "role": "Customer"
+    },
+    "xyz": {
+        "password": "Tanishk@123",
+        "role": "Customer"
+    }
+}

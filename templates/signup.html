@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -67,5 +67,176 @@
     </form>
     <p style="text-align:center;">Already have an account? <a href="/">Login here</a>.</p>
   </div>
+</body>
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - RBAC Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #efefef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .signup-container {
+      width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 { text-align: center; }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4285F4;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #357ae8;
+    }
+    .error { color: red; text-align: center; }
+
+    .feedback {
+      font-size: 0.85em;
+      margin-top: 8px;
+    }
+    .valid {
+      color: green;
+    }
+    .invalid {
+      color: red;
+    }
+    .strength-meter {
+      height: 6px;
+      background-color: #e0e0e0;
+      border-radius: 3px;
+      margin-top: 4px;
+    }
+    .strength-meter-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 3px;
+      transition: width 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="error">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <form method="POST" action="/signup">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" placeholder="Enter a username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" placeholder="Enter a password" required>
+
+      <!-- Password strength meter -->
+      <div class="strength-meter" id="strengthMeter">
+        <div class="strength-meter-fill" id="strengthFill"></div>
+      </div>
+      <!-- Feedback list -->
+      <div id="passwordFeedback" class="feedback"></div>
+
+      <label for="confirm_password">Confirm Password:</label>
+      <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required>
+
+      <input type="submit" value="Sign Up">
+    </form>
+    <p style="text-align:center;">Already have an account? <a href="/">Login here</a>.</p>
+  </div>
+
+  <script>
+    const password = document.getElementById("password");
+    const feedback = document.getElementById("passwordFeedback");
+    const strengthFill = document.getElementById("strengthFill");
+
+    password.addEventListener("input", function () {
+      const val = password.value;
+      let score = 0;
+      let messages = [];
+
+      if (val.length >= 8) {
+        score++;
+        messages.push("<span class='valid'>✔ Minimum 8 characters</span>");
+      } else {
+        messages.push("<span class='invalid'>✖ At least 8 characters</span>");
+      }
+
+      if (/[A-Z]/.test(val)) {
+        score++;
+        messages.push("<span class='valid'>✔ Uppercase letter</span>");
+      } else {
+        messages.push("<span class='invalid'>✖ Add an uppercase letter</span>");
+      }
+
+      if (/[a-z]/.test(val)) {
+        score++;
+        messages.push("<span class='valid'>✔ Lowercase letter</span>");
+      } else {
+        messages.push("<span class='invalid'>✖ Add a lowercase letter</span>");
+      }
+
+      if (/\d/.test(val)) {
+        score++;
+        messages.push("<span class='valid'>✔ Number</span>");
+      } else {
+        messages.push("<span class='invalid'>✖ Add a number</span>");
+      }
+
+      if (/[!@#$%^&*(),.?":{}|<>]/.test(val)) {
+        score++;
+        messages.push("<span class='valid'>✔ Special character</span>");
+      } else {
+        messages.push("<span class='invalid'>✖ Add a special character</span>");
+      }
+
+      // Update strength bar
+      const strengthPercent = (score / 5) * 100;
+      strengthFill.style.width = strengthPercent + "%";
+
+      if (strengthPercent <= 40) {
+        strengthFill.style.backgroundColor = "red";
+      } else if (strengthPercent <= 80) {
+        strengthFill.style.backgroundColor = "orange";
+      } else {
+        strengthFill.style.backgroundColor = "green";
+      }
+
+      feedback.innerHTML = messages.join("<br>");
+    });
+  </script>
 </body>
 </html>
