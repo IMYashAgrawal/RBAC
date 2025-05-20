@@ -1,2 +1,10 @@
 {"timestamp": "2025-05-20 18:41:17+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "abc", "ip_address": "127.0.0.1", "details": "Login success"}
 {"timestamp": "2025-05-20 18:41:33+0530", "level": "INFO", "event_type": "ACCESS_CHECK", "user": "abc", "ip_address": "127.0.0.1", "details": "Access granted"}
+{"timestamp": "2025-05-20 19:08:55+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "abc", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-20 19:09:03+0530", "level": "INFO", "event_type": "ACCESS_CHECK", "user": "abc", "ip_address": "127.0.0.1", "details": "Access granted"}
+{"timestamp": "2025-05-20 19:09:08+0530", "level": "INFO", "event_type": "LOGOUT", "user": "abc", "ip_address": "127.0.0.1", "details": "User logged out"}
+{"timestamp": "2025-05-20 19:09:40+0530", "level": "INFO", "event_type": "USER_REGISTRATION", "user": "xyz", "ip_address": "127.0.0.1", "details": "User registered"}
+{"timestamp": "2025-05-20 19:09:54+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 19:10:07+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-20 19:10:18+0530", "level": "WARNING", "event_type": "ACCESS_DENIED", "user": "xyz", "ip_address": "127.0.0.1", "details": "Access denied"}
+{"timestamp": "2025-05-20 19:10:24+0530", "level": "INFO", "event_type": "LOGOUT", "user": "xyz", "ip_address": "127.0.0.1", "details": "User logged out"}

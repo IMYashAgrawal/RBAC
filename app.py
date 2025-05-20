@@ -138,4 +138,9 @@ def logout():
     return redirect(url_for("login"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        host="127.0.0.1",    # Or use "0.0.0.0" to expose publicly
+        port=5000,           # Or another port if 5000 is in use
+        debug=True,
+        use_reloader=False  # Important: Prevents Flask from restarting and exiting in some environments
+    )
