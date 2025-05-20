@@ -1,19 +1,37 @@
-from auth_data import users, hash_string_to_50
+import mysql.connector
+from utilities import hash_string_to_50
 
 def authenticate(username, password):
-    """
-    Verify a user's credentials. Both username and password are hashed and compared
-    against stored values:contentReference[oaicite:4]{index=4}.
-    """
-    # Hash the provided username to find the stored user entry.
     hashed_username = hash_string_to_50(username)
-    user = users.get(hashed_username)
-    if not user:
-        # No such user (in hashed form).
-        return None
-    # Hash the provided password and compare to stored hash.
     hashed_password = hash_string_to_50(password)
-    if user["password"] == hashed_password:
-        return user["role"]
-    else:
+
+    try:
+        conn = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="root",
+            database="system_permissions"
+        )
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            SELECT u.passwd, r.name 
+            FROM users u
+            JOIN roles r ON u.roles = r.id 
+            WHERE u.userid = %s
+        """, (hashed_username,))
+        
+        result = cursor.fetchone()
+        
+        if result and result[0] == hashed_password:
+            return result[1]  # Return role name
         return None
+
+    except mysql.connector.Error as e:  # REQUIRED except block
+        print(f"Authentication error: {e}")
+        return None
+
+    finally:  # REQUIRED cleanup block
+        if 'conn' in locals() and conn.is_connected():
+            cursor.close()
+            conn.close()
