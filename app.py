@@ -200,19 +200,24 @@
 
 
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+#using the render template for rendering html,redirect,url_forurl routing and request for handling request 
 from auth_functions import authenticate
+#using authenticate for checking username and password 
 from auth_data import add_user
+# using add_user for adding new user
 from rbac_functions import has_permission
-import re  # For input validation
+#using has_permission for checking the permission of the user
+import re  
+# For input validation
 
 app = Flask(__name__)
+#creating an instance of Flask class
 app.secret_key = "supersecretkey"  # Use a secure key in production.
 
-# ---------------------------
-# Input Validation Functions
-# ---------------------------
+
 def is_valid_username(username):
     return bool(re.fullmatch(r"[A-Za-z0-9_]{3,20}", username))
+# Username must be 3–20 characters, alphanumeric or underscores
 
 def is_valid_password(password):
     if len(password) < 8:
@@ -228,30 +233,37 @@ def is_valid_password(password):
     if re.search(r"\s", password):
         return False
     return True
+# Password must meet all these creteria
 
-# ---------------------------
-# Routes
-# ---------------------------
+
 @app.route("/", methods=["GET", "POST"])
+#creating a route for login page
 def login():
     if request.method == "POST":
+        #taking the username and password from the login page
         username = request.form.get("username").strip()
         password = request.form.get("password").strip()
-
+        #taking the username and password from the login page 
         role = authenticate(username, password)
+        #checking the username and password is valid or not 
         if role:
             session["username"] = username
             session["role"] = role
             return redirect(url_for("home"))
+        #if the username and password is valid then going to the home page
         else:
             flash("Invalid credentials. Please try again.")
             return redirect(url_for("login"))
+        #if the username and password is not valid then going to the login page again
 
     return render_template("login.html")
+#returning  the login page
 
 @app.route("/signup", methods=["GET", "POST"])
+#creating a route for signup page
 def signup():
     if request.method == "POST":
+        #taking the username and password and confirm_password(it must be same as password) from the signup page
         username = request.form.get("username").strip()
         password = request.form.get("password").strip()
         confirm_password = request.form.get("confirm_password").strip()
@@ -259,10 +271,12 @@ def signup():
         if not is_valid_username(username):
             flash("Invalid username. Use 3–20 alphanumeric characters or underscores.")
             return redirect(url_for("signup"))
+        #checking the username is valid or not by checking the creteria of username is passed or not
 
         if not is_valid_password(password):
             flash("Password must be at least 8 characters, include uppercase, lowercase, digit, and special character.")
             return redirect(url_for("signup"))
+        #checking the password is valid or not by checking the creteria of password  is passed or not
 
         if password != confirm_password:
             flash("Passwords do not match. Please try again.")
@@ -281,14 +295,17 @@ def signup():
 def home():
     if "username" not in session:
         return redirect(url_for("login"))
+    #checking the username is in session or not
 
     username = session.get("username")
     role = session.get("role")
     message = None
+    #taking the username and role from the session
 
     if request.method == "POST":
         resource = request.form.get("resource").strip()
         access_type = request.form.get("access_type").strip()
+        #taking the resource and access_type from the home page 
 
         # Use new RBAC backend (SQL)
         if has_permission(role, resource, access_type):
