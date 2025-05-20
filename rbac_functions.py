@@ -27,7 +27,7 @@ def has_permission(role_name, component_name, required_permission):
         conn = mysql.connector.connect(
             host="localhost",         # Replace with your MySQL host
             user="root",   # Replace with your MySQL username
-            password="Tanishk@12", # Replace with your MySQL password
+            password="root", # Replace with your MySQL password
             database="system_permissions"
         )
         cursor = conn.cursor()
