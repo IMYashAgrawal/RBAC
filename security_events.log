@@ -1,0 +1,2 @@
+{"timestamp": "2025-05-20 18:41:17+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "abc", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-20 18:41:33+0530", "level": "INFO", "event_type": "ACCESS_CHECK", "user": "abc", "ip_address": "127.0.0.1", "details": "Access granted"}
