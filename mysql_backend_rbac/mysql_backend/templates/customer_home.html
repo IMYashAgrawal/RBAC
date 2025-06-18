@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Dashboard - RBAC Commerce</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(145deg, #f0f2f5, #dfe4ea);
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .dashboard-container h1 {
+            margin-bottom: 30px;
+            color: #2f3542;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            margin: 15px 0;
+        }
+
+        .features a {
+            text-decoration: none;
+            background-color: #1e90ff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .features a:hover {
+            background-color: #3742fa;
+        }
+
+        .logout-link {
+            margin-top: 30px;
+            display: inline-block;
+            color: #ff4757;
+            text-decoration: none;
+        }
+
+        .logout-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome, {{ session['username'] }} 👋</h1>
+        <ul class="features">
+            <li><a href="/product_info">Browse Products</a></li>
+            <li><a href="/order_info">My Orders</a></li>
+            <li><a href="/user_profiles">Edit Profile</a></li>
+            <li><a href="/payment_info">Payment Information</a></li>
+            <li><a href="/shipping_data">Shipping Details</a></li>
+            <li><a href="/reviews">My Reviews</a></li>
+        </ul>
+        <a class="logout-link" href="/logout">Logout</a>
+    </div>
+</body>
+</html>

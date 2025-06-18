@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('/static/images/ecommerce-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.signup-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(2px);
+  padding-top: 60px; /* account for fixed top bar */
+
+
+}
+
+.signup-left, .signup-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.signup-form {
+  background-color: rgba(255, 255, 255, 0.82);
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.signup-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.feedback {
+  font-size: 0.9em;
+  margin-top: 6px;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+.strength-meter {
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+.strength-meter-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  transition: width 0.3s ease-in-out;
+}
+
+.redirect {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.redirect a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-right {
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+.signup-right h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  
+}
+
+.signup-right p {
+  font-size: 1.1em;
+  max-width: 500px;
+  margin: 0 auto;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.brand-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.top-login-button {
+  padding: 10px 18px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.top-login-button:hover {
+  background-color: #0056b3;
+}
+/* Dashboard styles */
+.container {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.features {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features li {
+    margin: 15px 0;
+}
+
+.features a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.features a:hover {
+    color: #0056b3;
+}
+

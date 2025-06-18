@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - RBAC Application</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <!-- 🔹 Top Navigation Bar -->
+  <div class="top-bar">
+    <div class="brand-title">RBAC Commerce</div>
+    <div>
+      <a href="/" class="top-login-button">Log In</a>
+    </div>
+  </div>
+
+  <!-- 🔹 Main Signup Section -->
+  <div class="signup-container">
+    <div class="signup-left">
+      <form method="POST" action="/signup" class="signup-form">
+        <h2>Create Your Account</h2>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="error">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Enter username" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter password" required>
+        <div class="strength-meter" id="strengthMeter">
+          <div class="strength-meter-fill" id="strengthFill"></div>
+        </div>
+        <div id="passwordFeedback" class="feedback"></div>
+
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="Re-enter password" required>
+
+        <!-- 🔐 CAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6LffmkYrAAAAAKX-y84h6LYYbh_lQQ2uxpUNDZh-"></div>
+
+        <button type="submit">Sign Up</button>
+
+        <p class="redirect">Already registered? <a href="/">Log in here</a>.</p>
+      </form>
+    </div>
+
+    <div class="signup-right">
+      <h1><p>Create your account now</p></h1>
+    </div>
+  </div>
+
+  <script>
+    const password = document.getElementById("password");
+    const feedback = document.getElementById("passwordFeedback");
+    const strengthFill = document.getElementById("strengthFill");
+
+    password.addEventListener("input", function () {
+      const val = password.value;
+      let score = 0;
+      let messages = [];
+
+      if (val.length >= 8) score++, messages.push("<span class='valid'>✔ At least 8 characters</span>");
+      else messages.push("<span class='invalid'>✖ Minimum 8 characters</span>");
+      if (/[A-Z]/.test(val)) score++, messages.push("<span class='valid'>✔ Uppercase letter</span>");
+      else messages.push("<span class='invalid'>✖ Add uppercase letter</span>");
+      if (/[a-z]/.test(val)) score++, messages.push("<span class='valid'>✔ Lowercase letter</span>");
+      else messages.push("<span class='invalid'>✖ Add lowercase letter</span>");
+      if (/\d/.test(val)) score++, messages.push("<span class='valid'>✔ Number</span>");
+      else messages.push("<span class='invalid'>✖ Add a number</span>");
+      if (/[!@#$%^&*(),.?":{}|<>]/.test(val)) score++, messages.push("<span class='valid'>✔ Special character</span>");
+      else messages.push("<span class='invalid'>✖ Add special character</span>");
+
+      const strengthPercent = (score / 5) * 100;
+      strengthFill.style.width = strengthPercent + "%";
+      strengthFill.style.backgroundColor = strengthPercent <= 40 ? "red" : strengthPercent <= 80 ? "orange" : "green";
+      feedback.innerHTML = messages.join("<br>");
+    });
+  </script>
+</body>
+</html>

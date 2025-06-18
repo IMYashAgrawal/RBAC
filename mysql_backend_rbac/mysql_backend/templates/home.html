@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Home - RBAC Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #efefef;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    h2 { text-align: center; }
+    form {
+      margin-top: 20px;
+    }
+    select, input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background-color: #4285F4;
+      border: none;
+      color: #fff;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #357ae8;
+    }
+    .message {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #d9edf7;
+      border: 1px solid #bce8f1;
+      border-radius: 3px;
+    }
+    .logout {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .logout a {
+      color: #4285F4;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome, {{ username }}!</h2>
+    <p><strong>Your Role:</strong> {{ role }}</p>
+    <form method="POST" action="/home">
+      <label for="resource">Select Resource:</label>
+      <select name="resource" id="resource" required>
+        <option value="Products">Products</option>
+        <option value="Orders">Orders</option>
+        <option value="User Profiles">User Profiles</option>
+        <option value="Inventory Data">Inventory Data</option>
+        <option value="Payment Info">Payment Info</option>
+        <option value="Shipping Data">Shipping Data</option>
+        <option value="Reviews">Reviews</option>
+        <option value="Analytics">Analytics</option>
+        <option value="Promotions">Promotions</option>
+        <option value="Admin Settings">Admin Settings</option>
+        <option value="Legal Data">Legal Data</option>
+      </select>
+
+      <label for="access_type">Select Access Type:</label>
+      <select name="access_type" id="access_type" required>
+        <option value="R">Read</option>
+        <option value="W">Write</option>
+      </select>
+      <input type="submit" value="Check Permission">
+    </form>
+    
+    {% if message %}
+      <div class="message">
+        <strong>{{ message }}</strong>
+      </div>
+    {% endif %}
+    
+    <div class="logout">
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+  </div>
+</body>
+</html>

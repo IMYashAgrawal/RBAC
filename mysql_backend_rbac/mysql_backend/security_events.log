@@ -1,0 +1,50 @@
+{"timestamp": "2025-05-20 18:41:17+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "abc", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-20 18:41:33+0530", "level": "INFO", "event_type": "ACCESS_CHECK", "user": "abc", "ip_address": "127.0.0.1", "details": "Access granted"}
+{"timestamp": "2025-05-20 19:08:55+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "abc", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-20 19:09:03+0530", "level": "INFO", "event_type": "ACCESS_CHECK", "user": "abc", "ip_address": "127.0.0.1", "details": "Access granted"}
+{"timestamp": "2025-05-20 19:09:08+0530", "level": "INFO", "event_type": "LOGOUT", "user": "abc", "ip_address": "127.0.0.1", "details": "User logged out"}
+{"timestamp": "2025-05-20 19:09:40+0530", "level": "INFO", "event_type": "USER_REGISTRATION", "user": "xyz", "ip_address": "127.0.0.1", "details": "User registered"}
+{"timestamp": "2025-05-20 19:09:54+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 19:10:07+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-20 19:10:18+0530", "level": "WARNING", "event_type": "ACCESS_DENIED", "user": "xyz", "ip_address": "127.0.0.1", "details": "Access denied"}
+{"timestamp": "2025-05-20 19:10:24+0530", "level": "INFO", "event_type": "LOGOUT", "user": "xyz", "ip_address": "127.0.0.1", "details": "User logged out"}
+{"timestamp": "2025-05-20 19:43:47+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 19:44:25+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 19:44:58+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 19:47:40+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 20:11:47+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 20:12:25+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 20:21:05+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 21:02:40+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-20 21:02:59+0530", "level": "INFO", "event_type": "USER_REGISTRATION", "user": "xyz", "ip_address": "127.0.0.1", "details": "User registered"}
+{"timestamp": "2025-05-20 21:03:03+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "xyz", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-20 21:03:11+0530", "level": "INFO", "event_type": "ACCESS_CHECK", "user": "xyz", "ip_address": "127.0.0.1", "details": "Access granted"}
+{"timestamp": "2025-05-20 21:03:17+0530", "level": "WARNING", "event_type": "ACCESS_DENIED", "user": "xyz", "ip_address": "127.0.0.1", "details": "Access denied"}
+{"timestamp": "2025-05-21 11:17:28+0530", "level": "WARNING", "event_type": "AUTHENTICATION_FAILURE", "user": "qwerty", "ip_address": "127.0.0.1", "details": "Login failed"}
+{"timestamp": "2025-05-21 15:05:29+0530", "level": "INFO", "event_type": "USER_REGISTRATION", "user": "srstv", "ip_address": "127.0.0.1", "details": "User registered"}
+{"timestamp": "2025-05-21 15:05:50+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "srstv", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-21 15:09:05+0530", "level": "INFO", "event_type": "LOGOUT", "user": "srstv", "ip_address": "127.0.0.1", "details": "User logged out"}
+{"timestamp": "2025-05-21 15:10:21+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "srstv", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-21 15:10:22+0530", "level": "INFO", "event_type": "LOGOUT", "user": "srstv", "ip_address": "127.0.0.1", "details": "User logged out"}
+{"timestamp": "2025-05-21 15:12:07+0530", "level": "INFO", "event_type": "USER_REGISTRATION", "user": "mnbvc", "ip_address": "127.0.0.1", "details": "User registered"}
+{"timestamp": "2025-05-21 15:12:32+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "mnbvc", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-21 15:18:02+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "mnbvc", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-21 15:18:06+0530", "level": "INFO", "event_type": "LOGOUT", "user": "mnbvc", "ip_address": "127.0.0.1", "details": "User logged out"}
+{"timestamp": "2025-05-21 16:05:27+0530", "level": "INFO", "event_type": "USER_REGISTRATION", "user": "ram_prakash", "ip_address": "127.0.0.1", "details": "User registered"}
+{"timestamp": "2025-05-21 16:05:42+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "ram_prakash", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 12:44:29+0530", "level": "INFO", "event_type": "USER_REGISTRATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "User registered"}
+{"timestamp": "2025-05-22 12:54:09+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 12:56:07+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 12:57:39+0530", "level": "INFO", "event_type": "LOGOUT", "user": "poiu", "ip_address": "127.0.0.1", "details": "User logged out"}
+{"timestamp": "2025-05-22 12:57:41+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 13:01:13+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 17:14:44+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 17:18:20+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 23:11:54+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 23:12:14+0530", "level": "INFO", "event_type": "LOGOUT", "user": "poiu", "ip_address": "127.0.0.1", "details": "User logged out"}
+{"timestamp": "2025-05-22 23:15:18+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 23:21:16+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-22 23:25:51+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-23 09:32:30+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-23 20:07:41+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
+{"timestamp": "2025-05-23 20:13:54+0530", "level": "INFO", "event_type": "AUTHENTICATION", "user": "poiu", "ip_address": "127.0.0.1", "details": "Login success"}
